@@ -1,3 +1,10 @@
+# useful for reference:
+#
+# - https://www.tensorflow.org/swift/guide/checkpoints#the_tensorflow_v2_checkpoint_format
+# - https://github.com/google/leveldb/blob/main/table/block_builder.cc
+# - https://protobuf.dev/programming-guides/encoding/
+# - https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/protobuf/tensor_bundle.proto
+
 import json
 import numpy as np
 
