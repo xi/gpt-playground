@@ -4,7 +4,7 @@ Copied from: https://github.com/openai/gpt-2/blob/master/src/encoder.py.
 """
 import os
 import json
-import regex as re
+import re
 from functools import lru_cache
 
 @lru_cache()
@@ -52,7 +52,7 @@ class Encoder:
         self.cache = {}
 
         # Should haved added re.IGNORECASE so BPE merges can happen for capitalized versions of contractions
-        self.pat = re.compile(r"""'s|'t|'re|'ve|'m|'ll|'d| ?\p{L}+| ?\p{N}+| ?[^\s\p{L}\p{N}]+|\s+(?!\S)|\s+""")
+        self.pat = re.compile(r"""'s|'t|'re|'ve|'m|'ll|'d| ?[^\W\d_]+| ?\d+| ?[^\s[^\W\d_]\d]+|\s+(?!\S)|\s+""", re.U)
 
     def bpe(self, token):
         if token in self.cache:
